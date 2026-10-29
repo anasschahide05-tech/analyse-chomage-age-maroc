@@ -1,0 +1,106 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Projet Data Science -- Commerce international}
+\fancyfoot[C]{\thepage}
+\newcommand{\achanger}[1]{\textcolor{blue!60!black}{\textbf{[À compléter : #1]}}}
+\title{\textbf{Rapport de projet -- Data Science et commerce international}}
+\author{\achanger{Binôme : Noms et prénoms}}
+\date{\today}
+\begin{document}
+\begin{titlepage}
+\centering
+{\Large \achanger{Établissement} \par}
+\vspace{1cm}
+{\large Filière : \achanger{filière} \quad Module : Data Science\par}
+\vspace{1.8cm}
+{\Huge\bfseries \achanger{Titre précis du projet}\par}
+\vspace{1.5cm}
+{\Large Rapport scientifique de projet\par}
+\vspace{1.5cm}
+\begin{tabular}{rl}
+Étudiant(e) 1 : & \achanger{Nom 1} \\
+Étudiant(e) 2 : & \achanger{Nom 2} \\
+Responsable : & A. Larhlimi \\
+Année universitaire : & \achanger{2026--2027} \\
+Date de remise : & \achanger{JJ/MM/AAAA} \\
+\end{tabular}
+\vfill
+\textit{Document modèle : remplacer toutes les indications bleues. Ne jamais inventer des résultats.}
+\end{titlepage}
+\section*{Résumé}\addcontentsline{toc}{section}{Résumé}
+\achanger{150 à 200 mots : contexte, jeu de données et URL, question de recherche, méthodes, résultats réellement obtenus, limites.}
+\tableofcontents\newpage
+\section{Introduction}\label{sec:intro}
+\subsection{Contexte économique}\achanger{Décrire l'enjeu de commerce international avec sources.}
+\subsection{Problématique et hypothèses}\achanger{Formuler la question et les hypothèses.}
+\subsection{Objectifs}\achanger{Définir 2 ou 3 objectifs mesurables.}
+\section{Présentation du jeu de données}\label{sec:data}
+\subsection{Source, période et unité d'analyse}
+\achanger{Nom officiel, organisme, URL, méthode d'extraction, période, dimensions effectivement observées.}
+\subsection{Dictionnaire des variables}
+\begin{table}[ht]\centering
+\caption{Dictionnaire des variables -- à personnaliser}\label{tab:variables}
+\begin{tabular}{lll}\toprule Variable & Unité / type & Rôle\\\midrule
+\texttt{annee} & année & Index temporel\\
+\texttt{valeur} & unité monétaire à préciser & Exemple de cible\\
+\bottomrule\end{tabular}
+\end{table}
+\subsection{Qualité et préparation}\achanger{Manquants, doublons, changements de nomenclature, exclusions.}
+\section{Analyse exploratoire}\label{sec:eda}
+\achanger{Au moins cinq graphiques commentés dans le rapport ou son annexe.}
+\begin{figure}[ht]\centering
+% Remplacer le schéma d'exemple par un vrai fichier : \includegraphics[width=.8\linewidth]{figures/exportations.png}
+\begin{tikzpicture}[>=stealth]
+\draw[->] (0,0)--(9,0) node[right]{Temps};
+\draw[->] (0,0)--(0,3) node[above]{Valeur};
+\node[align=center,draw=blue!50!black,rounded corners,fill=blue!5] at (4.5,1.5)
+{Insérer ici un graphique\\réel issu du notebook};
+\end{tikzpicture}
+\caption{Emplacement d'une figure expérimentale -- à remplacer}\label{fig:exemple}
+\end{figure}
+La figure~\ref{fig:exemple} devra être interprétée à partir des résultats calculés.
+\section{Méthodologie}\label{sec:method}
+\subsection{Prétraitement et protocoles}\achanger{Décrire pipeline, partage entraînement/validation/test et justification temporelle.}
+\subsection{Modèles}\achanger{Présenter modèle de référence et deux modèles comparés.}
+\subsection{Équations et notations}
+Par exemple, l'erreur absolue moyenne (MAE) s'écrit :
+\begin{equation}\label{eq:mae}
+\mathrm{MAE}=\frac{1}{n}\sum_{i=1}^{n}\left|y_i-\widehat{y}_i\right|.
+\end{equation}
+Dans l'équation~\eqref{eq:mae}, $n$ est le nombre d'observations évaluées ; $y_i$ est la valeur réelle de la cible pour l'observation $i$ ; $\widehat{y}_i$ désigne la prédiction du modèle ; $|\cdot|$ est la valeur absolue. \textbf{Toute autre équation insérée dans le rapport doit définir chacun de ses paramètres.}
+\section{Résultats expérimentaux}\label{sec:results}
+\begin{table}[ht]\centering
+\caption{Comparaison des performances -- ne pas renseigner de valeurs fictives}\label{tab:performances}
+\begin{tabular}{lcc}\toprule Méthode & MAE & RMSE\\\midrule
+Référence & \achanger{valeur} & \achanger{valeur}\\
+Modèle 1 & \achanger{valeur} & \achanger{valeur}\\
+Modèle 2 & \achanger{valeur} & \achanger{valeur}\\
+\bottomrule\end{tabular}
+\end{table}
+Le tableau~\ref{tab:performances} sera adapté à la tâche (classification ou clustering si nécessaire).
+\section{Discussion}\label{sec:discussion}
+\achanger{Interpréter les résultats pour le commerce international ; biais, limites, restrictions causales.}
+\section{Conclusion et perspectives}\label{sec:conclusion}
+\achanger{Synthèse, réponse à la question de recherche, limites et extensions.}
+\begin{thebibliography}{9}
+\bibitem{comtrade} Nations Unies, \emph{UN Comtrade API -- Documentation}. \url{https://uncomtrade.org/docs/un-comtrade-api/}.
+\bibitem{worldbank} Banque mondiale, \emph{Indicators API -- Documentation}. \url{https://datahelpdesk.worldbank.org/knowledgebase/articles/889392}.
+\bibitem{wto} Organisation mondiale du commerce, \emph{Tariff and Trade Data}. \url{https://data.wto.org/en/dataset/wto_ttd}.
+\end{thebibliography}
+\appendix
+\section{Annexe : reproductibilité}\achanger{Versions de Python et des bibliothèques, paramètres, répertoire des figures, sources et références complémentaires.}
+\end{document}
